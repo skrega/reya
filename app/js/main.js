@@ -6,6 +6,7 @@ $(function () {
         fade: true,
         cssEase: 'linear',
         arrows: false,
+        adaptiveHeight: true,
         responsive: [{
             breakpoint: 651,
             settings: {
@@ -13,6 +14,10 @@ $(function () {
             }
         }, ]
     });
+    $('.banner-slider').on('swipe', function (event, slick, direction) {
+        $('.header__phone').toggleClass('change');
+    });
+
 
     $('.reviews-slider').slick({
         dots: true,
@@ -32,17 +37,7 @@ $(function () {
         }, ]
     });
 
-    // $('#banner').on('click', function () {
-    //     $(this).toggleClass('is-active')
-    // })
-
 })
-// banner.addEventListener("mousemove", function () {
-//     alert("Hello World!");
-// });
-// banner.onclick = function () { // перезапишет существующий обработчик
-//     alert('Станет'); // выведется только это
-// };
 const map = new mapgl.Map('map', {
     key: 'Your API access key',
     center: [55.31878, 25.23584],
